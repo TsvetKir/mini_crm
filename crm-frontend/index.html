@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM</title>
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <script defer src="./js/main.js"></script>
+  <script defer src="./js/server.js"></script>
+  <!-- <script defer src="./js/TableItem.js"></script> -->
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__container container">
+      <a href="#" class="header__logo"><img src="./img/logo.svg" alt="logo"></a>
+      <form class="header__form">
+        <input id="search" type="text" class="header__input" placeholder="Введите запрос">
+      </form>
+    </div>
+  </header>
+  <!-- <div id="load" class="preloader">
+    <div class="preloader__loader">
+      <div class="loadingio-spinner-rolling-ouhvu01qdpi">
+        <div class="ldio-09kshowuapk6">
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <main>
+    <div class="main__container container">
+      <h1 class="main__title title">Клиенты</h1>
+      <div class="tab-scrll">
+        <table id="table">
+          <colgroup>
+            <col class="col1">
+            <col class="col2">
+            <col class="col3">
+            <col class="col4">
+            <col class="col5">
+            <col class="col6">
+          </colgroup>
+          <thead class="thead">
+            <tr>
+              <th id="th1" class="th-sort" data-sort="1" sort="0">ID <img src="./img/Vector.svg" alt="arrow"></th>
+              <th id="th2" class="th-sort" data-sort="2" sort="0">Фамилия Имя Отчество <img src="./img/Vector.svg"
+                  alt="arrow"><img src="./img/Body.svg" alt=""></th>
+              <th id="th3" class="th-sort" data-sort="3" sort="0">Дата и время создания <img src="./img/Vector.svg"
+                  alt="arrow"></th>
+              <th id="th4" class="th-sort" data-sort="4" sort="0">Последние изменения <img src="./img/Vector.svg"
+                  alt="arrow"></th>
+              <th id="th5">Контакты</th>
+              <th id="th6">Действия</th>
+            </tr>
+          </thead>
+          <tbody id="tbody" class="tbody"></tbody>
+        </table>
+      </div>
+      <button class="btn main__btn js-open-modal" data-modal="1"><svg width="23" height="16" viewBox="0 0 23 16"
+          fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M14.5 8C16.71 8 18.5 6.21 18.5 4C18.5 1.79 16.71 0 14.5 0C12.29 0 10.5 1.79 10.5 4C10.5 6.21 12.29 8 14.5 8ZM5.5 6V3H3.5V6H0.5V8H3.5V11H5.5V8H8.5V6H5.5ZM14.5 10C11.83 10 6.5 11.34 6.5 14V16H22.5V14C22.5 11.34 17.17 10 14.5 10Z"
+            fill="#9873FF" />
+        </svg>
+        Добавить клиента</button>
+    </div>
+    <div class="modal" data-modal="1">
+      <div class="modal__container">
+        <h2 class="modal__title title">Новый клиент</h2>
+        <button class="modal__cross btn js-modal-close" data-modal="1"><img src="./img/cross.svg" alt="Cancel"></button>
+        <form class="modal__form">
+          <input id="surname" type="text" class="modal__input" placeholder="Фамилия">
+          <input id="name" type="text" class="modal__input" placeholder="Имя">
+          <input id="lastName" type="text" class="modal__input modal__input-last" placeholder="Отчество">
+          <div class="modal__contacts contacts">
+            <ul class="contacts__list list"></ul>
+            <button class="contacts__btn btn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.99998 3.66671C6.63331 3.66671 6.33331 3.96671 6.33331 4.33337V6.33337H4.33331C3.96665 6.33337 3.66665 6.63337 3.66665 7.00004C3.66665 7.36671 3.96665 7.66671 4.33331 7.66671H6.33331V9.66671C6.33331 10.0334 6.63331 10.3334 6.99998 10.3334C7.36665 10.3334 7.66665 10.0334 7.66665 9.66671V7.66671H9.66665C10.0333 7.66671 10.3333 7.36671 10.3333 7.00004C10.3333 6.63337 10.0333 6.33337 9.66665 6.33337H7.66665V4.33337C7.66665 3.96671 7.36665 3.66671 6.99998 3.66671ZM6.99998 0.333374C3.31998 0.333374 0.333313 3.32004 0.333313 7.00004C0.333313 10.68 3.31998 13.6667 6.99998 13.6667C10.68 13.6667 13.6666 10.68 13.6666 7.00004C13.6666 3.32004 10.68 0.333374 6.99998 0.333374ZM6.99998 12.3334C4.05998 12.3334 1.66665 9.94004 1.66665 7.00004C1.66665 4.06004 4.05998 1.66671 6.99998 1.66671C9.93998 1.66671 12.3333 4.06004 12.3333 7.00004C12.3333 9.94004 9.93998 12.3334 6.99998 12.3334Z"
+                  fill="#9873FF" />
+              </svg>
+              Добавить контакт</button>
+          </div>
+          <button class="modal__save btn">Сохранить</button>
+        </form>
+        <button class="modal__cancel btn js-modal-close" data-modal="1">Отмена</button>
+      </div>
+    </div>
+    <div class="modal" data-modal="2">
+      <div class="modal__container">
+        <h2 class="modal-change__title title">Изменить данные<span id="titleId" class="modal-change__titleId"></span>
+        </h2>
+        <button class="modal__cross btn js-modal-close" data-modal="2"><img src="./img/cross.svg" alt="Cancel"></button>
+        <form class="modal__form">
+          <input id="surnameChange" type="text" class="modal__input" placeholder="Фамилия">
+          <input id="nameChange" type="text" class="modal__input" placeholder="Имя">
+          <input id="lastNameChange" type="text" class="modal__input modal__input-last" placeholder="Отчество">
+          <div class="modal__contacts contacts">
+            <ul class="contacts__list-change list"></ul>
+            <button class="contacts__btn btn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.99998 3.66671C6.63331 3.66671 6.33331 3.96671 6.33331 4.33337V6.33337H4.33331C3.96665 6.33337 3.66665 6.63337 3.66665 7.00004C3.66665 7.36671 3.96665 7.66671 4.33331 7.66671H6.33331V9.66671C6.33331 10.0334 6.63331 10.3334 6.99998 10.3334C7.36665 10.3334 7.66665 10.0334 7.66665 9.66671V7.66671H9.66665C10.0333 7.66671 10.3333 7.36671 10.3333 7.00004C10.3333 6.63337 10.0333 6.33337 9.66665 6.33337H7.66665V4.33337C7.66665 3.96671 7.36665 3.66671 6.99998 3.66671ZM6.99998 0.333374C3.31998 0.333374 0.333313 3.32004 0.333313 7.00004C0.333313 10.68 3.31998 13.6667 6.99998 13.6667C10.68 13.6667 13.6666 10.68 13.6666 7.00004C13.6666 3.32004 10.68 0.333374 6.99998 0.333374ZM6.99998 12.3334C4.05998 12.3334 1.66665 9.94004 1.66665 7.00004C1.66665 4.06004 4.05998 1.66671 6.99998 1.66671C9.93998 1.66671 12.3333 4.06004 12.3333 7.00004C12.3333 9.94004 9.93998 12.3334 6.99998 12.3334Z"
+                  fill="#9873FF" />
+              </svg>
+              Добавить контакт</button>
+          </div>
+          <button id="change" class="btn">Изменить</button>
+        </form>
+        <button id="change-del" class="modal__cancel btn js-modal-close" data-modal="2">Удалить клиента</button>
+      </div>
+    </div>
+    <div class="modal modal-del" data-modal="3">
+      <div class="modal__container">
+        <h2 class="modal-del__title" data-id="">Удалить клиента</h2>
+        <button class="modal__cross btn js-modal-close" data-modal="3"><img src="./img/cross.svg" alt="Cancel"></button>
+        <p class="modal-del__text">Вы действительно хотите удалить данного клиента?</p>
+        <button class="btn modal-del__btn js-modal-close" data-modal="3">Удалить</button>
+        <button class="btn modal__cancel js-modal-close" data-modal="3">Отмена</button>
+      </div>
+    </div>
+    <div class="overlay js-modal-close" id="overlay-modal"></div>
+  </main>
+</body>
+
+</html>
